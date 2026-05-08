@@ -22,54 +22,7 @@
             <li><a href="../HTML/Pendientes.html">Pendientes</a></li>
         </ul>
     </nav>
-    <script>
-        function saludar() {
-            let tiempo = new Date();
-            let hora = tiempo.getHours();
-            let minutos = tiempo.getMinutes().toString().padStart(2, '0');
-            let segundos = tiempo.getSeconds().toString().padStart(2, '0');
-            let cad = "Son las " + hora + ":" + minutos + ":" + segundos + " — ";
 
-            if (hora >= 6 && hora < 12) {
-                cad = "¡Buenos días! " + cad;
-            } else if (hora < 18) {
-                cad = "¡Buenas tardes! " + cad;
-            } else {
-                cad = "¡Buenas noches! " + cad;
-            }
-            document.getElementById("saludo").textContent = cad;
-        }
-        saludar();
-        setInterval(saludar, 1000); 
-
-        
-        let url = "https://api.open-meteo.com/v1/forecast?latitude=28.46&longitude=-16.25&current_weather=true";
-
-        fetch(url)
-            .then(function(respuesta) { return respuesta.json(); })
-            .then(function(datos) {
-                let codigo = datos.current_weather.weathercode;
-                let temp = datos.current_weather.temperature;
-                let emoji = "";
-                let descripcion = "";
-
-                if (codigo === 0)       { emoji = "☀️"; descripcion = "Cielo despejado"; }
-                else if (codigo <= 2)   { emoji = "🌤️"; descripcion = "Parcialmente nublado"; }
-                else if (codigo === 3)  { emoji = "☁️"; descripcion = "Nublado"; }
-                else if (codigo <= 49)  { emoji = "🌫️"; descripcion = "Niebla"; }
-                else if (codigo <= 67)  { emoji = "🌧️"; descripcion = "Lluvia"; }
-                else if (codigo <= 77)  { emoji = "❄️"; descripcion = "Nieve"; }
-                else if (codigo <= 82)  { emoji = "🌦️"; descripcion = "Chubascos"; }
-                else                    { emoji = "⛈️"; descripcion = "Tormenta"; }
-
-                document.getElementById("tiempo-widget").textContent =
-                    emoji + " " + descripcion + " — " + temp + "°C en Tenerife";
-            })
-            .catch(function() {
-                document.getElementById("tiempo-widget").textContent = "⚠️ No se pudo cargar el tiempo";
-            });
-    
-</script>
 
     <main>
         <section>
@@ -107,6 +60,8 @@
     <footer>
         <p>Beatriz - 2026</p>
     </footer>
+
+    <script src="../JAVASCRIPT/script.js"></script>
 </body>
 
 </html>
