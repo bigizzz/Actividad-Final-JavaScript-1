@@ -70,20 +70,7 @@
     <footer>
         <p>Beatriz - 2026</p>
     </footer>
-    <script>
-    function filtrar() {
-        let texto = document.getElementById("buscador").value.toLowerCase();
-        let libros = document.querySelectorAll(".grid-pendientes article");
 
-        libros.forEach(function(libro) {
-            let contenido = libro.textContent.toLowerCase();
-            if (contenido.includes(texto)) {
-                libro.style.display = ""; 
-            } else {
-                libro.style.display = "none"; 
-            }
-        });
-    }
-</script>
+        <script src="../JAVASCRIPT/script.js"></script>
 </body>
 </html>

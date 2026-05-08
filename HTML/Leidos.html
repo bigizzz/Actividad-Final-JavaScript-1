@@ -5,11 +5,12 @@
     <title>Libros Leídos Bea</title>
     <link rel="stylesheet" href="../CSS/estilo.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <button id="btn-tema" onclick="cambiarTema()">🌙 Modo oscuro</button>
+   
 </head>
 
 <body>
     <header>
+         <button id="btn-tema" onclick="cambiarTema()">🌙 Modo oscuro</button>
         <h1>Colección Libros Bea</h1>
     </header>
 
@@ -64,61 +65,11 @@
         <img src="../IMAGENES/90’s.gif" alt="disco">
         
     </main>
-<script>
-    let elementos = document.querySelectorAll(".estrellas");
-    let total = 0;
-    let cantidad = elementos.length;
-
-    elementos.forEach(function(elem) {
-        let texto = elem.textContent;
-        let llenas = 0;
-        for (let i = 0; i < texto.length; i++) {
-            if (texto[i] === "★") llenas++;
-        }
-        total += llenas;
-    });
-
-    let media = total / cantidad;
-    document.getElementById("media-puntuacion").textContent = 
-        "⭐ Puntuación media de mis libros leídos: " + media.toFixed(1) + " / 5";
-
-    function toggleSeccion(id) {
-        let div = document.getElementById(id);
-        if (div.style.display === "none") {
-            div.style.display = ""; 
-        } else {
-            div.style.display = "none"; 
-        }
-    }
-    let estrellas = document.querySelectorAll(".estrellas");
-
-    estrellas.forEach(function(elem) {
-        elem.addEventListener("mouseover", function() {
-            elem.style.color = "blue";
-            elem.style.fontSize = "1.3em";
-        });
-        elem.addEventListener("mouseout", function() {
-            elem.style.color = ""; 
-            elem.style.fontSize = "";
-        });
-    });
-
-    function cambiarTema() {
-    let body = document.body;
-    let boton = document.getElementById("btn-tema");
-
-    if (body.classList.contains("oscuro")) {
-        body.classList.remove("oscuro");
-        boton.textContent = "🌙 Modo oscuro";
-    } else {
-        body.classList.add("oscuro");
-        boton.textContent = "☀️ Modo claro";
-    }
-    }
-
-</script>
+     
     <footer>
         <p>Beatriz - 2026</p>
     </footer>
+
+     <script src="../JAVASCRIPT/script.js"></script>
 </body>
 </html>
